@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" type="text/css" />
+    <title>Password Generator</title>
+  </head>
+  <body>
+    <header>
+      <h1 id="rcorners1">Password Generator</h1>
+    </header>
+    <main>
+      <h2 class="title">
+        Do you need a strong password? Try this password generator.
+      </h2>
+      <div class="strength">
+        <p>Password Strength:</p>
+        <!-- TODO: Password Strength Output -->
+      </div>
+      <div class="password center" id="rcorners1">
+        <!-- TODO: Add Password Output -->
+      </div>
+      <div class="flex-parent-element center">
+        <div
+          class="flex-child-element copy center btn"
+          id="rcorners1"
+          role="“button”"
+        >
+          <p>Copy to Clipboard</p>
+          <!-- TODO: Add Way to Copy -->
+        </div>
+        <div
+          class="flex-child-element regenerate center btn"
+          id="rcorners1"
+          role="“button”"
+        >
+          <p>Regenerate the password</p>
+          <!-- TODO: Add Way to Regenerate -->
+        </div>
+      </div>
+      <div class="input">
+        <div class="length slidecontainer center">
+          <p>Password Length</p>
+          <input
+            type="range"
+            min="1"
+            max="20"
+            value="10"
+            class="slider"
+            id="myRange"
+          />
+        </div>
+        <div class="options">
+          <p>Other Options</p>
+          <label class="container"
+            >A - Z
+            <input type="checkbox" checked="checked" id="uppercase" />
+            <span class="checkmark"></span>
+          </label>
+
+          <label class="container"
+            >a - z
+            <input type="checkbox" id="lowercase" />
+            <span class="checkmark"></span>
+          </label>
+
+          <label class="container"
+            >0 - 9
+            <input type="checkbox" id="numbers" />
+            <span class="checkmark"></span>
+          </label>
+
+          <label class="container"
+            >!@#$%^&*
+            <input type="checkbox" id="symbols" />
+            <span class="checkmark"></span>
+          </label>
+        </div>
+      </div>
+
+      <script src="app.js"></script>
+    </main>
+  </body>
+</html>

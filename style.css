@@ -1,0 +1,186 @@
+@import url("https://fonts.googleapis.com/css?family=Muli&display=swap");
+
+body {
+  font-family: "Muli", sans-serif;
+}
+
+.center {
+  border: 5px solid #87b8ea;
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
+
+#rcorners1 {
+  border-radius: 25px;
+  padding: 20px;
+}
+
+h1,
+h2 {
+  text-align: center;
+}
+
+header {
+  background-color: #87b8ea;
+  color: white;
+}
+
+.btn {
+  padding: 0.5em 0.75em;
+  background: #d6d6d6;
+  border-radius: 6px;
+  cursor: pointer;
+  user-select: none;
+
+  &:hover {
+    background: #126577;
+  }
+
+  &:active {
+    background: #126577;
+  }
+}
+
+.flex-parent-element {
+  display: flex;
+  width: 50%;
+  border: 0;
+}
+
+.flex-child-element {
+  flex: 1;
+  border: 2px solid #87b8ea;
+  margin: 10px;
+  text-align: center;
+  background-color: #87b8ea;
+  color: white;
+  font-weight: 900;
+}
+
+.flex-child-element:first-child {
+  margin-right: 20px;
+}
+
+.title {
+  padding-bottom: 30px;
+  padding-top: 30px;
+}
+.strength {
+  text-align: center;
+}
+
+.password {
+  text-align: center;
+  height: 50px;
+}
+
+.slidecontainer {
+  border: 0;
+  font-weight: 900;
+}
+
+/* The slider itself */
+.slider {
+  -webkit-appearance: none; /* Override default CSS styles */
+  appearance: none;
+  width: 100%; /* Full-width */
+  height: 25px; /* Specified height */
+  background: #87b8ea; /* Grey background */
+  outline: none; /* Remove outline */
+  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+  -webkit-transition: 0.2s; /* 0.2 seconds transition on hover */
+  transition: opacity 0.2s;
+}
+
+/* Mouse-over effects */
+.slider:hover {
+  opacity: 1; /* Fully shown on mouse-over */
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background: #04aa6d; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}
+
+.slider::-moz-range-thumb {
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background: #04aa6d; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}
+
+/* Customize the checkboxes */
+
+/* Customize the label (the container) */
+.container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: #2196f3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
