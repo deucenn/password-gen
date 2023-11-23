@@ -1,10 +1,13 @@
-// TODO: Finish slider values
+// Slider Value Change
+const sliderElement = document.querySelector(".slider")
+const sliderValue = document.querySelector(".value")
 
-// var slider = document.getElementById("myRange");
-// var output = document.getElementById("demo");
-// output.innerHTML = slider.value; // Display the default slider value
+sliderElement.addEventListener("input", (event) => {
+  const tempSliderValue = event.target.value;
+  sliderValue.textContent = tempSliderValue;
 
-// // Update the current slider value (each time you drag the slider handle)
-// slider.oninput = function() {
-//   output.innerHTML = this.value;
-// }
+  const progress = (tempSliderValue / sliderElement.max) * 100;
+
+
+  return progress;
+});
