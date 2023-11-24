@@ -24,7 +24,13 @@ sliderEl.addEventListener("input", (event) => {
 // lower = lowercaseEl.checked,
 // number = numbersEl.checked,
 // symbols = symbolsEl.checked,
+
 // Copy Function
+
+copyPassword.addEventListener("click", () => {
+  navigator.clipboard.writeText(password.value);
+  alert("Password Copied");
+});
 
 // Regenerate Function
 
@@ -47,10 +53,34 @@ function symbols() {
   return symbols[Math.floor(Math.random() * symbols.length)];
 }
 
+
+const randomVal = {
+  lowerVal: lower,
+  upperVal: upper,
+  numberVal: number,
+  symbolsVal: symbols
+};
+
+
 // Password Output
 
 function generatePassword() {
   let genPassword = "";
 
+  const optCount = lower + upper + number + symbols;
   const optArr = [lower, upper, number, symbols];
+  const passwordLength = sliderValue;
+  
+
+  if (optCount === 0) {
+    return genPassword;
+  }
+
+  for (let i = 0; i < passwordLength; i += optCount) {
+    optArr.forEach(opt => {
+      
+    })
+  }
 }
+
+console.log(genPassword);
