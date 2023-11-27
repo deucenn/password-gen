@@ -1,4 +1,4 @@
-const password = document.querySelector("password");
+const resultEl = document.querySelector("#result");
 const copyPassword = document.querySelector(".copy");
 const regeneratePassword = document.querySelector(".regenerate");
 const uppercaseEl = document.querySelector("#uppercase");
@@ -9,33 +9,23 @@ const sliderEl = document.querySelector(".slider");
 const sliderValue = document.querySelector(".value");
 
 // Slider Value Change
-
 sliderEl.addEventListener("input", (event) => {
   const tempSliderValue = event.target.value;
   sliderValue.textContent = tempSliderValue;
-
-  const progress = (tempSliderValue / sliderEl.max) * 100;
-
-  return progress;
 });
 
 // Event Listeners
-// upper = uppercaseEl.checked,
-// lower = lowercaseEl.checked,
-// number = numbersEl.checked,
-// symbols = symbolsEl.checked,
-
-// Copy Function
-
 copyPassword.addEventListener("click", () => {
-  navigator.clipboard.writeText(password.value);
+  navigator.clipboard.writeText(resultEl.textContent);
   alert("Password Copied");
 });
 
-// Regenerate Function
+regeneratePassword.addEventListener("click", () => {
+  const password = generatePassword();
+  resultEl.textContent = password;
+});
 
 // Input Values
-
 function lower() {
   return String.fromCharCode(97 + Math.floor(Math.random() * 26));
 }
@@ -53,34 +43,33 @@ function symbols() {
   return symbols[Math.floor(Math.random() * symbols.length)];
 }
 
-
-const randomVal = {
-  lowerVal: lower,
-  upperVal: upper,
-  numberVal: number,
-  symbolsVal: symbols
-};
-
-
 // Password Output
-
 function generatePassword() {
-  let genPassword = "";
+  const passwordLength = sliderEl.value;
+  const options = [
+    { func: lower, element: lowercaseEl },
+    { func: upper, element: uppercaseEl },
+    { func: number, element: numbersEl },
+    { func: symbols, element: symbolsEl },
+  ];
 
-  const optCount = lower + upper + number + symbols;
-  const optArr = [lower, upper, number, symbols];
-  const passwordLength = sliderValue;
-  
+  // Filter out options with undefined or null elements and check their 'checked' property
+  const validOptions = options.filter((option) => option.element && option.element.checked);
+  const optCount = validOptions.length;
 
   if (optCount === 0) {
-    return genPassword;
+    return "Select at least one option";
   }
 
-  for (let i = 0; i < passwordLength; i += optCount) {
-    optArr.forEach(opt => {
-      
-    })
+  let genPassword = "";
+  for (let i = 0; i < passwordLength; i++) {
+    const randomOption = validOptions[Math.floor(Math.random() * optCount)];
+    genPassword += randomOption.func();
   }
+
+  return genPassword;
 }
 
-console.log(genPassword);
+// Call generatePassword function immediately when the script is loaded
+const initialPassword = generatePassword();
+resultEl.textContent = initialPassword;
