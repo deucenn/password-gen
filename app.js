@@ -54,7 +54,7 @@ function generatePassword() {
   ];
 
   // Filter out options with undefined or null elements and check their 'checked' property
-  const validOptions = options.filter((option) => option.element && option.element.checked);
+  const validOptions = options.filter(option => Object.values(option)[0]);
   const optCount = validOptions.length;
 
   if (optCount === 0) {
