@@ -26,6 +26,11 @@ header {
   color: white;
 }
 
+#result {
+  word-wrap: break-word;
+  font-weight: 900;
+}
+
 .btn {
   padding: 0.5em 0.75em;
   background: #d6d6d6;
